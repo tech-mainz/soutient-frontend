@@ -4,14 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import App from "./App";
 import "./index.css";
-import { StateContextProvider } from "./context";
+import { clientId } from "./utils/urls";
+// import { StateContextProvider } from "./context";
 const root = reactDom.createRoot(document.getElementById("root"));
 root.render(
-  <ThirdwebProvider desiredChainId={ChainId.Goerli}>
+  <ThirdwebProvider activeChain="goerli" clientId={clientId}>
     <BrowserRouter>
-      <StateContextProvider>
-        <App />
-      </StateContextProvider>
+      {/* <StateContextProvider> */}
+      <App />
+      {/* </StateContextProvider> */}
     </BrowserRouter>
   </ThirdwebProvider>
 );
