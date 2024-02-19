@@ -1,18 +1,106 @@
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500&family=Inter+Tight:ital,wght@0,100;0,200;1,100;1,200&family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oxygen:wght@300;400;700&family=Roboto:wght@100&family=Ubuntu:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100;16..144,200;16..144,300;16..144,400;16..144,500;16..144,600;16..144,700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.linear-gradient {
-  background: linear-gradient(
-    179.14deg,
-    rgba(32, 18, 63, 0) -7.14%,
-    #000000 87.01%
-  );
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(0.8);
+body::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+body::-webkit-scrollbar-track {
+  background: #000;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #AA076B;
+  border-radius: 10px;
+}
+code {
+    font-family: var(--primary-font)
+}
+
+ :root {
+    /* --themeColour: #2cb7c7; */
+    /* --themeColour: radial-gradient(
+      200.65% 776.86% at -9.28% 116.91%,
+      #904e95 15.44%,
+      #3c1053 100%
+    ); */
+    --themeColour: #AA076B;
+    --secondaryColor: #F74670;
+    --primary-font: "Montserrat", sans-serif;
+    --backgroundColorCard: #1E1E1E;
+    --iconic-text:"Montagu Slab"
+}
+
+
+/* * {
+    outline: 2px solid green;
+} */
+
+.section__title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.section__title>h1 {
+    color: #F74670;
+    font-family: var(--primary-font);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.resp__upper__heading {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .resp__upper__heading h1 {
+    font-weight: bold;
+    font-size: 3rem;
+    font-family: var(--primary-font);
+    color: var(--secondaryColor);
+    margin: 0px;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .resp__bene__container {
+      width: 80%;
+      margin: auto;
+    }
+    .resp__upper__heading h1 {
+      font-size: 2rem;
+    }
+    .resp__upper__heading img {
+      width: 25%;
+      pointer-events: none;
+    }
+    .resp__upper__heading {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .resp__upper__heading img {
+      display: none;
+      pointer-events: none;
+    }
+    .reward__left {
+      margin: 2rem;
+    }
+  }
+@media screen and (max-width: 590px) {
+    .section__title>img {
+        display: none;
+    }
 }

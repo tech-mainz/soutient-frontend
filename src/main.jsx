@@ -9,10 +9,6 @@ import { clientId } from "./utils/urls";
 const root = reactDom.createRoot(document.getElementById("root"));
 root.render(
   <ThirdwebProvider activeChain="goerli" clientId={clientId}>
-    <BrowserRouter>
-      {/* <StateContextProvider> */}
       <App />
-      {/* </StateContextProvider> */}
-    </BrowserRouter>
   </ThirdwebProvider>
 );
