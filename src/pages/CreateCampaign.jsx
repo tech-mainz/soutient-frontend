@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useContract, useContractWrite } from "@thirdweb-dev/react";
-
+import { contractId } from "../utils/urls";
 export default function CreateCampaign() {
-  const { contract } = useContract("0x992bBF09331c07591DFdc903F127d8503D77582D");
+  const { contract } = useContract(contractId);
   const { mutateAsync: createCampaign, isLoading } = useContractWrite(contract, "createCampaign");
 
   const [owner, setOwner] = useState(""); // assuming _owner is an address
