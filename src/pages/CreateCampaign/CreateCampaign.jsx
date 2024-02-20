@@ -19,7 +19,6 @@ export default function CreateCampaign() {
 
   const callCreateCampaign = async () => {
     try {
-      // Convert deadline to UNIX timestamp (in seconds)
       const deadlineTimestamp = Math.floor(new Date(deadline).getTime() / 1000);
 
       const data = await createCampaign({
@@ -69,9 +68,6 @@ export default function CreateCampaign() {
         value={image}
         onChange={(e) => setImage(e.target.value)}
       />
-      {/* <button onClick={callCreateCampaign} disabled={isLoading}>
-        {isLoading ? "Creating Campaign..." : "Create Campaign"}
-      </button> */}
       <Web3Button
       contractAddress={contractId}
       action={(contract) => {
