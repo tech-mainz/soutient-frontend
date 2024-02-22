@@ -31,44 +31,79 @@ export default function CreateCampaign() {
   };
 
   return (
-    <div>
+    <div className="campaign__creation_main">
+      <form className="campaign__creation_form">
+        <div className="form_field">
+      <label for="owner">Owner: </label>
       <input
         type="text"
-        placeholder="Owner"
+        id="owner"
+        // placeholder="Owner"
+        name="owner"
         value={owner}
         onChange={(e) => setOwner(e.target.value)}
       />
+      </div>
+      <div className="form_field">
+      <label for="title">Title: </label>
       <input
         type="text"
-        placeholder="Title"
+        id="title"
+        name="title"
+        // placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
+      </div>
+      <div className="form_field">
+      <label for="description">Description: </label>
       <textarea
-        placeholder="Description"
+        id="description"
+        name="description"
+        // placeholder="Description"
         value={description}
+        rows={7}
+        cols={30}
         onChange={(e) => setDescription(e.target.value)}
       />
+      </div>
+      <div className="form_field">
+      <label for="target">Target: </label>
       <input
         type="number"
         step=".01"
-        placeholder="Target"
+        id="target"
+        name="target"
+        // placeholder="Target"
         value={target}
         onChange={(e) => setTarget(e.target.value)}
       />
+      </div>
+      <div className="form_field">
+      <label for="deadline">Deadline: </label>
       <input
         type="datetime-local"
-        placeholder="Deadline"
+        id="deadline"
+        name="deadline"
+        // placeholder="Deadline"
         value={deadline}
         onChange={(e) => setDeadline(e.target.value)}
       />
+      </div>
+      <div className="form_field">
+      <label for="image">Image URL: </label>
       <input
         type="text"
-        placeholder="Image URL"
+        id="image"
+        name="image"
+        // placeholder="Image URL"
         value={image}
         onChange={(e) => setImage(e.target.value)}
       />
+      </div>
+      <div className="campaign__creation_button">
       <Web3Button
+      className="web3__button"
       contractAddress={contractId}
       action={(contract) => {
         callCreateCampaign();
@@ -76,6 +111,8 @@ export default function CreateCampaign() {
     >
       createCampaign
     </Web3Button>
+    </div>
+    </form>
     </div>
   );
 }
