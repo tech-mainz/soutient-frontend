@@ -1,50 +1,50 @@
 .campaign__creation_main {
-    width: 100%;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    /* margin-top: 8rem; */
-    align-items: center;
-    /* padding-bottom: 8rem; */
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-top: 8rem; */
+  align-items: center;
+  /* padding-bottom: 8rem; */
 }
 .campaign__creation_form {
-    display: flex;
-    margin-top: 2.5rem;
-    border: 3px solid var(--primaryColor);
-    padding: 2.2rem;
-    border-radius: 20px;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: left;
-    gap: 1.4rem;
-    background-color: #ffffff;
+  display: flex;
+  margin-top: 2.5rem;
+  border: 3px solid var(--primaryColor);
+  padding: 2.2rem;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  gap: 1.4rem;
+  background-color: #ffffff;
 }
 
 .form_field {
-    display: flex;
+  display: flex;
   flex-direction: row;
   gap: 0rem;
 }
 
-.form_field>label {
-    color: var(--primaryColor);
-    text-transform: uppercase;
-    font-family: var(--primary-font);
-    font-weight: 750;
-    width: 9.25rem;
-    float: left;
-    flex-direction: row;
+.form_field > label {
+  color: var(--primaryColor);
+  text-transform: uppercase;
+  font-family: var(--primary-font);
+  font-weight: 750;
+  width: 9.25rem;
+  float: left;
+  flex-direction: row;
 }
-.form_field>input {
-    background-color: #F746701A;
+.form_field > input {
+  background-color: #f746701a;
   border: 2px solid var(--secondaryColor);
   border-radius: 4px;
   width: 15rem;
   height: 2rem;
 }
-.form_field>textarea {
-    background-color: #F746701A;
+.form_field > textarea {
+  background-color: #f746701a;
   border: 2px solid var(--secondaryColor);
   border-radius: 4px;
 }
@@ -53,8 +53,8 @@
     border-radius: 4px;
 } */
 .campaign__creation_button {
-    display: flex;
-    margin-top: 0.5rem;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
