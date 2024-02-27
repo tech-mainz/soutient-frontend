@@ -32,7 +32,7 @@ export default function CreateCampaign() {
 
   return (
     <div className="campaign__creation_main">
-      <form className="campaign__creation_form">
+      <div className="campaign__creation_form">
         <div className="form_field">
           <label>Owner: </label>
           <input
@@ -112,7 +112,7 @@ export default function CreateCampaign() {
             createCampaign
           </Web3Button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
