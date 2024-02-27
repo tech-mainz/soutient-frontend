@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useContract, useContractWrite,Web3Button } from "@thirdweb-dev/react";
+import { useContract, useContractWrite, Web3Button } from "@thirdweb-dev/react";
 import { contractId } from "../../utils/urls";
 import "./CreateCampaign.css";
- 
+
 export default function CreateCampaign() {
   const { contract } = useContract(contractId);
   const { mutateAsync: createCampaign, isLoading } = useContractWrite(
@@ -31,51 +31,88 @@ export default function CreateCampaign() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Owner"
-        value={owner}
-        onChange={(e) => setOwner(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <textarea
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <input
-        type="number"
-        step=".01"
-        placeholder="Target"
-        value={target}
-        onChange={(e) => setTarget(e.target.value)}
-      />
-      <input
-        type="datetime-local"
-        placeholder="Deadline"
-        value={deadline}
-        onChange={(e) => setDeadline(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Image URL"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-      />
-      <Web3Button
-      contractAddress={contractId}
-      action={(contract) => {
-        callCreateCampaign();
-      }}
-    >
-      createCampaign
-    </Web3Button>
+    <div className="campaign__creation_main">
+      <form className="campaign__creation_form">
+        <div className="form_field">
+          <label>Owner: </label>
+          <input
+            type="text"
+            id=""
+            // placeholder="Owner"
+            name=""
+            value={owner}
+            onChange={(e) => setOwner(e.target.value)}
+          />
+        </div>
+        <div className="form_field">
+          <label>Title: </label>
+          <input
+            type="text"
+            id=""
+            name=""
+            // placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="form_field">
+          <label>Description: </label>
+          <textarea
+            id=""
+            name=""
+            // placeholder="Description"
+            value={description}
+            rows={7}
+            cols={30}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className="form_field">
+          <label>Target: </label>
+          <input
+            type="number"
+            step=".01"
+            id=""
+            name=""
+            // placeholder="Target"
+            value={target}
+            onChange={(e) => setTarget(e.target.value)}
+          />
+        </div>
+        <div className="form_field">
+          <label>Deadline: </label>
+          <input
+            type="datetime-local"
+            id=""
+            name=""
+            // placeholder="Deadline"
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
+          />
+        </div>
+        <div className="form_field">
+          <label>Image URL: </label>
+          <input
+            type="text"
+            id=""
+            name=""
+            // placeholder="Image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </div>
+        <div className="campaign__creation_button">
+          <Web3Button
+            className="web3__button"
+            contractAddress={contractId}
+            action={(contract) => {
+              callCreateCampaign();
+            }}
+          >
+            createCampaign
+          </Web3Button>
+        </div>
+      </form>
     </div>
   );
 }
