@@ -6,7 +6,7 @@ import { Abi } from "../../utils/abi";
 import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton ";
 import { UserContext } from "../../contexts/UserContext";
 export default function CreateCampaign() {
-  const { isAuthenticated } = useContext(UserContext);
+  const { isAuthenticated,userAddress} = useContext(UserContext);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const contract = new ethers.Contract(contractAddress, Abi, provider);
   const [owner, setOwner] = useState("");
@@ -21,7 +21,7 @@ export default function CreateCampaign() {
       const signer = provider.getSigner(accounts[0]);
       const contractWithSigner = contract.connect(signer);
       const tx = await contractWithSigner.createCampaign(
-        owner,
+        userAddress,
         title,
         description,
         target,
@@ -39,16 +39,6 @@ export default function CreateCampaign() {
   return (
     <div className="campaign__creation_main">
       <div className="campaign__creation_form">
-        <div className="form_field">
-          <label>Owner: </label>
-          <input
-            type="text"
-            id=""
-            name=""
-            value={owner}
-            onChange={(e) => setOwner(e.target.value)}
-          />
-        </div>
         <div className="form_field">
           <label>Title: </label>
           <input
