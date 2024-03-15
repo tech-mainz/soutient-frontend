@@ -1,0 +1,22 @@
+.campaign__feed_card{
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.campaign__feed_card>img{
+    width: 8rem;
+}
+.campaign__feed_card>p{
+    font-size: 1.3rem;
+}
+.campaign__feed_card_btn_holder{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

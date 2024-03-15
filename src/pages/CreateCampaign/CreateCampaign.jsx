@@ -1,34 +1,43 @@
-import { useState } from "react";
-import { useContract, useContractWrite, Web3Button } from "@thirdweb-dev/react";
-import { contractId } from "../../utils/urls";
+import { useContext, useState } from "react";
+import { ethers } from "ethers";
 import "./CreateCampaign.css";
-
+import { maticUrl, contractId } from "../../utils/urls";
+import { Abi } from "../../utils/abi";
+import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton ";
+import { UserContext } from "../../contexts/UserContext";
 export default function CreateCampaign() {
-  const { contract } = useContract(contractId);
-  const { mutateAsync: createCampaign, isLoading } = useContractWrite(
-    contract,
-    "createCampaign"
-  );
-
-  const [owner, setOwner] = useState(""); // assuming _owner is an address
+  const { isAuthenticated } = useContext(UserContext);
+  const provider = new ethers.providers.JsonRpcProvider(maticUrl);
+  const contractAddress = contractId;
+  const abi = Abi;
+  const contract = new ethers.Contract(contractAddress, abi, provider);
+  console.log("Contract obj: ", contract);
+  const [owner, setOwner] = useState(""); 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [target, setTarget] = useState(0);
-  const [deadline, setDeadline] = useState(0); // assuming _deadline is a timestamp
+  const [deadline, setDeadline] = useState(0); 
   const [image, setImage] = useState("");
-
-  const callCreateCampaign = async () => {
+  async function createCampaign() {
     try {
-      const deadlineTimestamp = Math.floor(new Date(deadline).getTime() / 1000);
+      const tx = await contract.createCampaign(
+        owner,
+        title,
+        description,
+        target,
+        deadline,
+        image
+      );
 
-      const data = await createCampaign({
-        args: [owner, title, description, target, deadlineTimestamp, image],
-      });
-      console.info("contract call success", data);
-    } catch (err) {
-      console.error("contract call failure", err);
+      // Wait for the transaction to be mined
+      await tx.wait();
+
+      // Transaction successful
+      console.log("Campaign created successfully!");
+    } catch (error) {
+      console.error("Error creating campaign:", error);
     }
-  };
+  }
 
   return (
     <div className="campaign__creation_main">
@@ -102,15 +111,17 @@ export default function CreateCampaign() {
           />
         </div>
         <div className="campaign__creation_button">
-          <Web3Button
-            className="web3__button"
-            contractAddress={contractId}
-            action={(contract) => {
-              callCreateCampaign();
-            }}
-          >
-            createCampaign
-          </Web3Button>
+          {isAuthenticated ? (
+            <button
+              onClick={() => {
+                createCampaign();
+              }}
+            >
+              Submit
+            </button>
+          ) : (
+            <ConnectWalletButton />
+          )}
         </div>
       </div>
     </div>
