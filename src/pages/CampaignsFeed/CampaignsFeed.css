@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+.campaign__feed_pg > h1 {
+  text-align: center;
+}
+
 .campaigns__list_contain {
   display: flex;
   flex-direction: row;
@@ -23,6 +27,8 @@
   border-radius: 50%;
   height: 10rem;
   width: 10rem;
+  border: 2px solid var(--primaryColor);
+  background-color: #ffffff;
 }
 .campaign__feed_card_body {
     display: flex;
@@ -32,12 +38,31 @@
     border-radius: 20px;
     border: 1px solid #c3124a;
     padding-bottom: 2rem;
+    /* width: 15rem; */
 }
 
 .feed_card_body_text{
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
     padding: 2rem;
+}
+
+.campaign__feed_card_body > .submit__button {
+    width: 7rem;
+    font-size: 0.9rem;
+}
+
+.feed_card_body_text > p {
+    font-family: var(--secondary-font);
+    font-size: 0.9rem;
+}
+
+.tag__val {
+  background-color: var(--primaryColor);
+  padding: 0.6rem;
+    border-radius: 10px;
+    color: #ffffff;
 }
