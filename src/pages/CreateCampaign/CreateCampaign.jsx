@@ -9,7 +9,6 @@ export default function CreateCampaign() {
   const { isAuthenticated,userAddress} = useContext(UserContext);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const contract = new ethers.Contract(contractAddress, Abi, provider);
-  const [owner, setOwner] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [target, setTarget] = useState(0);
