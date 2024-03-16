@@ -1,0 +1,18 @@
+.button__main_container {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button__main_container > p {
+    font-family: var(--secondary-font);
+    font-size: 1rem;
+}
+
+.button__main_container > .submit__button {
+    width: 12rem;
+}
+.address_value {
+    color: var(--primaryColor);
+}

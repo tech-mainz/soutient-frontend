@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import "./CreateCampaign.css";
 import { maticUrl, contractId as contractAddress } from "../../utils/urls";
 import { Abi } from "../../utils/abi";
-import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton ";
+import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton";
 import { UserContext } from "../../contexts/UserContext";
 export default function CreateCampaign() {
   const { isAuthenticated,userAddress} = useContext(UserContext);
@@ -95,6 +95,7 @@ export default function CreateCampaign() {
               onClick={() => {
                 createCampaign();
               }}
+              className="submit__button"
             >
               Submit
             </button>

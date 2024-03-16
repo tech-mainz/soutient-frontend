@@ -1,9 +1,10 @@
 import React from 'react'
+import FeedsSection from '../../components/FeedsSection/FeedsSection';
 
 const MainPage = () => {
   return (
     <div>
-      Soutient 
+      <FeedsSection />
     </div>
   )
 }
