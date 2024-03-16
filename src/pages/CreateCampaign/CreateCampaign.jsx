@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { ethers } from "ethers";
 import "./CreateCampaign.css";
 import { maticUrl, contractId as contractAddress } from "../../utils/urls";
-import { Abi } from "../../utils/abi";
+import { Abi } from "../../utils/Abi";
 import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton ";
 import { UserContext } from "../../contexts/UserContext";
 export default function CreateCampaign() {
