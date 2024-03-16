@@ -2,6 +2,8 @@ import React from "react";
 import { ethers } from "ethers";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import "./ConnectWalletButton.css";
+
 const ConnectWalletButton = () => {
   const { isAuthenticated, setIsAuthenticated, userAddress, setAddress } =
     useContext(UserContext);
@@ -28,11 +30,11 @@ const ConnectWalletButton = () => {
   };
 
   return (
-    <div>
+    <div className="button__main_container">
       {isAuthenticated ? (
-        <p>Connected with address: {userAddress}</p>
+        <p>Connected with address: <span className="address_value">{userAddress}</span></p>
       ) : (
-        <button onClick={connectWallet}>Connect Wallet</button>
+        <button onClick={connectWallet} className="submit__button">Connect Wallet</button>
       )}
     </div>
   );
