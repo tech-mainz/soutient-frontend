@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainPage, CampaignsFeed, CreateCampaign } from "./pages";
 import UserDetails from "./contexts/UserContext";
-import ConnectWalletButton from "./components/ConnectWalletButton/ConnectWalletButton ";
+import ConnectWalletButton from "./components/ConnectWalletButton/ConnectWalletButton";
 const App = () => {
   return (
     <div className="App">
