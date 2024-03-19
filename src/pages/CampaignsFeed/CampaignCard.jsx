@@ -43,7 +43,7 @@ const CampaignCard = ({campaign}) => {
             {campaign.amountCollected.toString()}
           </p>
         </div>
-            <button onClick={handleDonate}>Donate</button>
+            <button onClick={handleDonate} className="submit__button">Donate</button>
       </div>
     </div>
   );
