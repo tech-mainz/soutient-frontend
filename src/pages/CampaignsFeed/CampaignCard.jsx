@@ -38,10 +38,10 @@ const CampaignCard = ({campaign}) => {
             <span className="tag__val">Target:</span>{" "}
             {campaign.target.toString()}
           </p>
-          <p>
+          {/* <p>
             <span className="tag__val">Current:</span>{" "}
             {campaign.amountCollected.toString()}
-          </p>
+          </p> */}
         </div>
             <button onClick={handleDonate} className="submit__button">Donate</button>
       </div>
