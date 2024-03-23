@@ -6,6 +6,15 @@
     flex-wrap: wrap;
 }
 
+.upvoting__card_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
 .upvoting__card > img {
     border-radius: 25%;
     height: 10rem;
@@ -20,6 +29,7 @@
     padding: 2rem;
     background-color: #f4d3d3;
     text-align: center;
+    width: 12rem;
 }
 
 .upvoting__card > .submit__button {
@@ -30,4 +40,9 @@
 .upvoting__card > p {
     font-family: var(--secondary-font);
     font-size: 1.1rem;
+}
+
+.close__text {
+    font-size: 1rem;
+    color: var(--primaryColor);
 }
