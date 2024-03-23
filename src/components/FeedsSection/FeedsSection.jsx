@@ -5,12 +5,9 @@ import "./FeedsSection.css";
 const FeedsSection = () => {
     const navigate = useNavigate();
 
-  const handleClick1 = () => {
-    navigate('/campaign/create-campaign');
-  };
-  const handleClick2 = () => {
-    navigate('/campaign/all');
-  };
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
   return (
     <div className='feeds__main_container'>
@@ -18,13 +15,13 @@ const FeedsSection = () => {
             Choose Your Option
         </div>
         <div className='feeds__sub_container'>
-            <div className='feeds__card' onClick={handleClick1}>
+            <div className='feeds__card' onClick={() => handleNavigation('/campaign/create-campaign')}>
                 Campaign Creation
             </div>
-            <div className='feeds__card' onClick={handleClick2}>
+            <div className='feeds__card' onClick={() => handleNavigation('/campaign/all')}>
                 Campaign Feeds
             </div>
-            <div className='feeds__card'>
+            <div className='feeds__card' onClick={() => handleNavigation('/upvote')}>
                 Upvoting System
             </div>
             <div className='feeds__card'>

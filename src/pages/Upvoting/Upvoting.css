@@ -1,0 +1,33 @@
+.upvoting_main__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.upvoting__card > img {
+    border-radius: 25%;
+    height: 10rem;
+    width: 10rem;
+    border: 2px solid var(--primaryColor);
+    background-color: #ffffff;
+}
+
+.upvoting__card {
+    border: 2px solid var(--themeColour);
+    border-radius: 20px;
+    padding: 2rem;
+    background-color: #f4d3d3;
+    text-align: center;
+}
+
+.upvoting__card > .submit__button {
+    width: 9rem;
+    font-size: 0.9rem;
+}
+
+.upvoting__card > p {
+    font-family: var(--secondary-font);
+    font-size: 1.1rem;
+}
