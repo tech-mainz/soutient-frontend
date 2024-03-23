@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Upvoting.css";
-import "./UpvotingCard";
 import UpvotingCard from './UpvotingCard';
 
 const Upvoting = () => {
