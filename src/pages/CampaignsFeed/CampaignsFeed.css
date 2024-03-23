@@ -15,6 +15,7 @@
   justify-content: center;
   gap: 3rem;
   flex-wrap: wrap;
+  padding: 3rem;
 }
 .campaign__list_card {
   display: flex;
