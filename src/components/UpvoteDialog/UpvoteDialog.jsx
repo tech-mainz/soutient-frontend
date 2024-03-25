@@ -7,13 +7,14 @@ import { UserContext } from "../../contexts/UserContext";
 import { useMutation } from "react-query";
 import axios from "axios";
 import { soutientBackendUrl } from "../../utils/urls";
+import { toast } from 'react-toastify';
 
 dayjs.extend(customParseFormat);
 
 const UpvoteDialog = ({ open, handleClose, campaign }) => {
-  console.log("Election: ", campaign);
+  // console.log("Election: ", campaign);
   const { userAddress } = useContext(UserContext);
-  console.log(userAddress);
+  // console.log(userAddress);
   const inputFormat = "YYYY-MM-DDTHH:mm:ssZ";
   const outputFormat = "DD MMM YYYY";
 
@@ -28,12 +29,13 @@ const UpvoteDialog = ({ open, handleClose, campaign }) => {
         (resposnse) => {
           console.log(resposnse);
           if (resposnse.status === 201) {
-            window.location.reload();
-            
+            toast.success("Voting completed successfully!!");
+            // window.location.reload();
           }
         },
         (error) => {
           console.log(error);
+          toast.error("Oops! An error occurred.");
         }
       );
   };
