@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./UpvoteDialog.css";
 import { Dialog, DialogContent } from "@mui/material";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import { UserContext } from "../../contexts/UserContext";
+import { useMutation } from "react-query";
+import axios from "axios";
+import { soutientBackendUrl } from "../../utils/urls";
+
 dayjs.extend(customParseFormat);
 
 const UpvoteDialog = ({ open, handleClose, campaign }) => {
+  console.log("Election: ", campaign);
+  const { userAddress } = useContext(UserContext);
+  console.log(userAddress);
   const inputFormat = "YYYY-MM-DDTHH:mm:ssZ";
   const outputFormat = "DD MMM YYYY";
+
+  const voteHandle = () => {
+    axios
+      .post(`${soutientBackendUrl}/vote/`, {
+        name: campaign.name,
+        meta_user_key: userAddress,
+        election_foreign: campaign.id,
+      })
+      .then(
+        (resposnse) => {
+          console.log(resposnse);
+          if (resposnse.status === 201) {
+            window.location.reload();
+            
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
   return (
     <Dialog
       fullWidth={true}
@@ -68,7 +97,9 @@ const UpvoteDialog = ({ open, handleClose, campaign }) => {
               <p>{campaign?.no_of_votes}</p>
             </div>
           </div>
-          <button className="submit__button">Upvote</button>
+          <button className="submit__button" onClick={voteHandle}>
+            Upvote
+          </button>
         </div>
       </DialogContent>
     </Dialog>
