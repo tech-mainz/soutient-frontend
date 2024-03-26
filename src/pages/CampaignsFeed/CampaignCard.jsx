@@ -1,41 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./CampaignsFeed.css";
 import { ethers } from "ethers";
 import { Abi } from "../../utils/Abi";
 import { contractId as contractAddress } from "../../utils/urls";
+import axios from "axios";
+import { soutientBackendUrl } from "../../utils/urls";
+import { UserContext } from "../../contexts/UserContext";
+import { toast } from "react-toastify";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const contract = new ethers.Contract(contractAddress, Abi, provider);
 const CampaignCard = ({ campaign }) => {
   const [currCampaign, setCampaign] = useState();
+  const { userAddress } = useContext(UserContext);
+  const curDate = new Date();
   const handleDonate = async () => {
     try {
-      // Prompt the user to enter the donation amount
       const donationAmount = prompt("Enter donation amount:");
       if (!donationAmount || isNaN(donationAmount)) {
         alert("Invalid donation amount.");
         return;
       }
-
-      // Convert donation amount to wei
       const weiAmount = ethers.utils.parseEther(donationAmount);
 
-      // Get MetaMask signer
       const signer = provider.getSigner();
 
-      // Send transaction to donate to the campaign owner
       const tx = await signer.sendTransaction({
-        to: campaign.owner, // Owner's address
+        to: campaign.owner,
         value: weiAmount,
       });
+      const amountFloat = parseFloat(donationAmount);
 
-      // Wait for transaction to be confirmed
+      const formattedAmount = amountFloat.toFixed(7);
       await tx.wait();
+      axios
+        .post(`${soutientBackendUrl}/campaign-donate/`, {
+          from_address: userAddress,
+          to_address: campaign.owner,
+          campaign_address: campaign.owner,
+          date_time: curDate,
+          amount: formattedAmount,
+          name: campaign.title,
+        })
+        .then(
+          (response) => {
+            console.log(response);
+            if (response.status === 201) {
+              // toast.success("Donation completed successfully!!");
+              // window.location.reload();
+            }
+          },
+          (error) => {
+            console.log(error);
+            toast.error("Oops! An error occurred.");
+          }
+        );
 
-      alert("Donation successful!");
+      toast.success("Donation successful!");
     } catch (error) {
       console.error("Error donating to campaign:", error.message);
-      alert("Error donating to campaign. Please try again.");
+      toast.error("Error donating to campaign. Please try again.");
     }
   };
 
@@ -49,7 +73,9 @@ const CampaignCard = ({ campaign }) => {
             {campaign.target.toString()}
           </p>
         </div>
-            <button onClick={handleDonate} className="submit__button">Donate</button>
+        <button onClick={handleDonate} className="submit__button">
+          Donate
+        </button>
       </div>
     </div>
   );
