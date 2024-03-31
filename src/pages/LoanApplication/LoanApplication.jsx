@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./LoanApplication.css";
-
+import { soutientBackendUrl } from "../../utils/urls";
 class LoanApplication extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,14 @@ class LoanApplication extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { requesterName, institutionalAddress, need, grade, image, fundNeeded } = this.state;
+    const {
+      requesterName,
+      institutionalAddress,
+      need,
+      grade,
+      image,
+      fundNeeded,
+    } = this.state;
     const requesterMetamaskId = window.localStorage.getItem("userAddress");
 
     try {
@@ -30,9 +37,7 @@ class LoanApplication extends Component {
       formData.append("image", image);
       formData.append("fund_needed", fundNeeded);
 
-      await axios.post("http://127.0.0.1:8000/loan-request/", formData);
-
-      // Reset form fields after successful submission
+      await axios.post(`${soutientBackendUrl}/loan-request/`, formData);
       this.setState({
         requesterName: "",
         institutionalAddress: "",
@@ -57,7 +62,8 @@ class LoanApplication extends Component {
   };
 
   render() {
-    const { requesterName, institutionalAddress, need, grade, fundNeeded } = this.state;
+    const { requesterName, institutionalAddress, need, grade, fundNeeded } =
+      this.state;
 
     return (
       <div className="student__loan__main_pg">
@@ -65,27 +71,58 @@ class LoanApplication extends Component {
           <h1>Loan Application</h1>
           <div className="form_field">
             <label>Requester Name</label>
-            <input type="text" name="requesterName" value={requesterName} onChange={this.handleChange} />
+            <input
+              type="text"
+              name="requesterName"
+              value={requesterName}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="form_field">
             <label>Institutional Address</label>
-            <input type="text" name="institutionalAddress" value={institutionalAddress} onChange={this.handleChange} />
+            <input
+              type="text"
+              name="institutionalAddress"
+              value={institutionalAddress}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="form_field">
             <label>Need</label>
-            <input type="text" name="need" value={need} onChange={this.handleChange} />
+            <input
+              type="text"
+              name="need"
+              value={need}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="form_field">
             <label>Grade</label>
-            <input type="number" name="grade" value={grade} onChange={this.handleChange} />
+            <input
+              type="number"
+              name="grade"
+              value={grade}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="form_field">
             <label>Image</label>
-            <input type="file" id="user_image" name="image" accept=".jpg, .jpeg, .png" onChange={this.handleImageChange} />
+            <input
+              type="file"
+              id="user_image"
+              name="image"
+              accept=".jpg, .jpeg, .png"
+              onChange={this.handleImageChange}
+            />
           </div>
           <div className="form_field">
             <label>Fund Needed</label>
-            <input type="number" name="fundNeeded" value={fundNeeded} onChange={this.handleChange} />
+            <input
+              type="number"
+              name="fundNeeded"
+              value={fundNeeded}
+              onChange={this.handleChange}
+            />
           </div>
           <button type="submit">Submit</button>
         </form>
