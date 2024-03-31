@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MainPage, CampaignsFeed, CreateCampaign, Upvoting } from "./pages";
+import { MainPage, CampaignsFeed, CreateCampaign, Upvoting, LoanApplication, LoanFeeds } from "./pages";
 import UserDetails from "./contexts/UserContext";
 import ConnectWalletButton from "./components/ConnectWalletButton/ConnectWalletButton";
 import { ToastContainer } from "react-toastify";
@@ -21,6 +21,8 @@ const App = () => {
             />
             <Route path="/campaign/all" element={<CampaignsFeed />} />
             <Route path="/upvote" element={<Upvoting />} />
+            <Route path="/apply/student-loan" element={<LoanApplication />} />
+            <Route path="/feed/student-loan" element={<LoanFeeds />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer />

@@ -7,7 +7,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { useMutation } from "react-query";
 import axios from "axios";
 import { soutientBackendUrl } from "../../utils/urls";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 dayjs.extend(customParseFormat);
 
@@ -30,7 +30,6 @@ const UpvoteDialog = ({ open, handleClose, campaign }) => {
           console.log(resposnse);
           if (resposnse.status === 201) {
             toast.success("Voting completed successfully!!");
-            // window.location.reload();
           }
         },
         (error) => {
