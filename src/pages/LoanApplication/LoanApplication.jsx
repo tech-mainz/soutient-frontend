@@ -87,7 +87,7 @@ class LoanApplication extends Component {
             <label>Fund Needed</label>
             <input type="number" name="fundNeeded" value={fundNeeded} onChange={this.handleChange} />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className="submit__button">Submit</button>
         </form>
       </div>
     );
