@@ -36,6 +36,7 @@
   float: left;
   flex-direction: row;
 }
+
 .form_field > input {
   background-color: #f746701a;
   border: 2px solid var(--secondaryColor);
