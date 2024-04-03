@@ -1,0 +1,14 @@
+.loan__card_body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 15rem;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #a11535;
+}
+.loan__card_body > img {
+  width: 10rem;
+  border-radius: 10px;
+}
