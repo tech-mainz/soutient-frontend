@@ -7,13 +7,25 @@ const UserDetails = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userAddress, setAddress] = useState("");
   useEffect(() => {
-    if (
-      window.localStorage.getItem("userAddress") &&
-      window.localStorage.getItem("userAddress") !== null
-    ) {
-      setIsAuthenticated(true);
-      setAddress(window.localStorage.getItem("userAddress"));
+    async function checkMetaMaskLogin() {
+      if (window.ethereum && window.ethereum.isMetaMask) {
+        try {
+          const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+          });
+          setIsAuthenticated(accounts.length > 0);
+          if (accounts.length > 0) {
+            setAddress(accounts[0]);
+          }
+        } catch (error) {
+          setIsAuthenticated(false);
+        }
+      } else {
+        setIsAuthenticated(false);
+      }
     }
+
+    checkMetaMaskLogin();
   }, []);
   return (
     <UserContext.Provider
