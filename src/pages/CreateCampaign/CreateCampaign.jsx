@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { ethers } from "ethers";
 import "./CreateCampaign.css";
-import { maticUrl, contractId as contractAddress } from "../../utils/urls";
+import {
+  maticUrl,
+  contractId as contractAddress,
+  soutientBackendUrl,
+} from "../../utils/urls";
 import { Abi } from "../../utils/Abi";
 import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton";
 import { UserContext } from "../../contexts/UserContext";
 export default function CreateCampaign() {
-  const { isAuthenticated,userAddress} = useContext(UserContext);
+  const { isAuthenticated, userAddress } = useContext(UserContext);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const contract = new ethers.Contract(contractAddress, Abi, provider);
   const [title, setTitle] = useState("");
@@ -29,7 +33,14 @@ export default function CreateCampaign() {
         { gasLimit: 300000 }
       );
       await tx.wait();
-      console.log("Campaign created successfully!");
+      await axios.post(`${soutientBackendUrl}/campaign/`, {
+        owner: userAddress,
+        title: title,
+        description: description,
+        target: target,
+        deadline: deadline,
+        image_url: image,
+      });
     } catch (error) {
       console.log("Error creating campaign:", error);
     }
