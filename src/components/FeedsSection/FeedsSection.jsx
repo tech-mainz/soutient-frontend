@@ -43,7 +43,11 @@ const FeedsSection = () => {
         >
           Apply for Student Loan
         </div>
-        <div className="feeds__card">Reviews</div>
+        <div className="feeds__card"
+          onClick={() => handleNavigation("/review")}
+        >
+          Reviews
+        </div>
       </div>
     </div>
   );

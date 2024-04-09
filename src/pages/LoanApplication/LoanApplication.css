@@ -14,16 +14,19 @@
     gap: 1.4rem;
     background-color: #ffffff;
 }
+
 .student__loan__main_pg{
   width: 100%;
   padding-bottom: 2rem;
 }
+
 .form_field {
     display: flex;
     flex-direction: row;
     gap: 0rem;
-  }
-  .form_field > label {
+}
+
+.form_field > label {
     color: var(--primaryColor);
     text-transform: uppercase;
     font-family: var(--primary-font);
@@ -32,22 +35,34 @@
     float: left;
     flex-direction: row;
   }
-  .form_field > input {
+
+  .form_field > input[type="text, number"] {
     background-color: #f746701a;
-    border: 2px solid var(--secondaryColor);
-    border-radius: 4px;
-    width: 30rem;
-    height: 2rem;
+  border: 2px solid var(--secondaryColor);
+  border-radius: 4px;
+  width: 15rem;
+  height: 2rem;
   }
+
   .form_field > textarea {
     background-color: #f746701a;
     border: 2px solid var(--secondaryColor);
     border-radius: 4px;
   }
+
+  /* .form_field > input[type="file"]::file-selector-button {
+    border: 2px solid #6c5ce7;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+    background-color: #a29bfe;
+    transition: 1s;
+  } */
+
   /* .form_field>input,textarea:focus {
       border: 2px solid var(--themeColour);
       border-radius: 4px;
   } */
+
   .submit__button {
     width: 9rem;
     padding: 0.75rem;
