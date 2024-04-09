@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 2rem;
   padding: 3rem;
+  align-items: center;
 }
 .student__loan_cards_container {
   display: flex;

@@ -2,13 +2,49 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 15rem;
-  align-items: center;
-  padding: 2rem;
+  width: 17rem;
+  align-items: left;
+  padding: 1rem;
   border-radius: 10px;
-  border: 1px solid #a11535;
+  border: 3px solid #a11535;
+  font-size: 1rem;
+  font-family: Cambria;
+  height: 20rem;
+  background-color: beige;
 }
 .loan__card_body > img {
-  width: 10rem;
+  width: 6rem;
   border-radius: 10px;
+  border: 1px solid #cf607a;
+  height: 6rem;
 }
+.required{
+  border: 2px solid #cf607a;
+  background-color: #b55791;
+  color: white;
+  padding: 0.1rem;
+}
+.details-view{
+  background-color:#8d0a56;
+  border: 0px;
+  border-radius: 5px;
+  height: 2rem;
+  color: white;
+  width: 8rem;
+  display: block;
+  margin: auto;
+}
+.grade{
+  border: 2px solid #cf607a;
+  background-color: #b55791;
+  color: white;
+  padding: 0.1rem; 
+  width: 3.8rem;
+  font-size: 0.95rem;
+}
+.name{
+  font-weight: 700;
+  color: #a11535;
+
+}
+
