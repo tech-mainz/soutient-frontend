@@ -1,16 +1,17 @@
 import { useContext, useState } from "react";
 import { ethers } from "ethers";
-import axios from "axios";
 import "./CreateCampaign.css";
 import {
   maticUrl,
   contractId as contractAddress,
   soutientBackendUrl,
 } from "../../utils/urls";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Abi } from "../../utils/Abi";
 import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton";
 import { UserContext } from "../../contexts/UserContext";
+import { toast } from "react-toastify";
 export default function CreateCampaign() {
   const { isAuthenticated, userAddress } = useContext(UserContext);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -20,6 +21,7 @@ export default function CreateCampaign() {
   const [target, setTarget] = useState(0);
   const [deadline, setDeadline] = useState(0);
   const [image, setImage] = useState("");
+  const navigate = useNavigate();
   const createCampaign = async () => {
     try {
       const accounts = await provider.send("eth_requestAccounts", []);
@@ -35,14 +37,20 @@ export default function CreateCampaign() {
         { gasLimit: 300000 }
       );
       await tx.wait();
-      await axios.post(`${soutientBackendUrl}/campaign/`, {
-        owner: userAddress,
-        title: title,
-        description: description,
-        target: target,
-        deadline: deadline,
-        image_url: image,
-      });
+      await axios
+        .post(`${soutientBackendUrl}/campaign/`, {
+          owner: userAddress,
+          title: title,
+          description: description,
+          target: target,
+          deadline: deadline,
+          image_url: image,
+        })
+        .then((res) => {
+          console.log(res);
+            toast.success("Creation completed successfully!!");
+            navigate("/");
+        });
     } catch (error) {
       console.log("Error creating campaign:", error);
     }
