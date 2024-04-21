@@ -6,6 +6,7 @@ import {
   contractId as contractAddress,
   soutientBackendUrl,
 } from "../../utils/urls";
+import axios from "axios";
 import { Abi } from "../../utils/Abi";
 import ConnectWalletButton from "../../components/ConnectWalletButton/ConnectWalletButton";
 import { UserContext } from "../../contexts/UserContext";
