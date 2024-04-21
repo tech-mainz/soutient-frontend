@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LoanFeeds.css";
 import LoanFeedCard from "../../components/LoanFeedCard/LoanFeedCard";
 import axios from "axios";
@@ -6,12 +6,9 @@ import { useQuery } from "react-query";
 import { soutientBackendUrl } from "../../utils/urls";
 
 const fetchLoanApplications = async () => {
-  const response = await axios.get(
-    `${soutientBackendUrl}/loan-request/`
-  );
+  const response = await axios.get(`${soutientBackendUrl}/loan-request/`);
   return response.data;
 };
-
 
 const LoanFeeds = () => {
   const {
@@ -27,10 +24,8 @@ const LoanFeeds = () => {
     <div className="loan__feed_pg_main">
       <h1>Student loans</h1>
       <div className="student__loan_cards_container">
-        {loanApplications.map((application,index)=>{
-          return(
-            <LoanFeedCard application={application} key={index}/>
-          )
+        {loanApplications.map((application, index) => {
+          return <LoanFeedCard application={application} key={index} />;
         })}
       </div>
     </div>
