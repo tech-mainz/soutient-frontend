@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./LoanFeedCard.css";
 import EducationLoanDialog from "../EducationLoanDialog/EducationLoanDialog";
 function LoanFeedCard({ application }) {
@@ -10,9 +10,14 @@ function LoanFeedCard({ application }) {
     setOpen(true);
   };
   return (
-    <> <EducationLoanDialog application={application} open={open} handleClose={handleClose} />
+    <>
+      {" "}
+      <EducationLoanDialog
+        application={application}
+        open={open}
+        handleClose={handleClose}
+      />
       <div className="loan__card_body">
-     
         <img src={application?.image} alt="" />
         <p class="name">{application?.requester_name}</p>
         <p>
@@ -27,7 +32,9 @@ function LoanFeedCard({ application }) {
           </div>
         </p>
         <div>
-          <button class="details-view" onClick={handleOpen}>View Details</button>
+          <button class="details-view" onClick={handleOpen}>
+            View Details
+          </button>
         </div>
       </div>
     </>

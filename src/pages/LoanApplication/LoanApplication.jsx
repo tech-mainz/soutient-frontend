@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./LoanApplication.css";
 import { soutientBackendUrl } from "../../utils/urls";
+import LoanInterestByUserSection from "../../components/LoanInterestByUserSection/LoanInterestByUserSection";
 class LoanApplication extends Component {
   constructor(props) {
     super(props);
@@ -124,8 +125,11 @@ class LoanApplication extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit" className="submit__button">Submit</button>
+          <button type="submit" className="submit__button">
+            Submit
+          </button>
         </form>
+        <LoanInterestByUserSection/>
       </div>
     );
   }
