@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./EducationLoanDialog.css";
 import { Dialog, DialogContent } from "@mui/material";
 import { soutientBackendUrl } from "../../utils/urls";
@@ -6,9 +6,12 @@ import { UserContext } from "../../contexts/UserContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 const EducationLoanDialog = ({ application, open, handleClose }) => {
+  const [contact, setContact] = useState("");
+  const [message, setMessage] = useState("");
   let currDate = new Date();
   const { isAuthenticated, userAddress } = useContext(UserContext);
-  const handleInterest = () => {
+  const handleInterest = (e) => {
+    e.preventDefault();
     axios
       .post(`${soutientBackendUrl}/loan-interest/`, {
         donator_metamask_id: userAddress,
@@ -16,11 +19,13 @@ const EducationLoanDialog = ({ application, open, handleClose }) => {
         needy_metamask_id: application?.requester_metamask_id,
         datetime: currDate,
         loan_request_foreign: application?.id,
+        message: message,
+        contact_email: contact,
       })
       .then((promise) => {
-        if(promise.status===201){
-            toast.success("Interest recorded succesfully");
-            handleClose();
+        if (promise.status === 201) {
+          toast.success("Interest recorded succesfully");
+          handleClose();
         }
         console.log(promise);
       });
@@ -56,10 +61,30 @@ const EducationLoanDialog = ({ application, open, handleClose }) => {
         sx={{ "&::-webkit-scrollbar": { display: "none" }, padding: 0 }}
       >
         <h2>Would you like to send the interest?</h2>
-        <div className="btn__holder_loan_request">
-          <button onClick={handleInterest}>yes</button>
-          <button onClick={handleClose}>no</button>
-        </div>
+        <form onSubmit={handleInterest}>
+          <input
+            type="text"
+            placeholder="message"
+            required
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+          />
+          <input
+            type="email"
+            name=""
+            placeholder="Email"
+            id=""
+            require
+            value={contact}
+            onChange={(e) => {
+              setContact(e.target.value);
+            }}
+          />
+          <button type="submit">Submit</button>
+          <button type="clear">Clear</button>
+        </form>
       </DialogContent>
     </Dialog>
   );
