@@ -11,8 +11,8 @@ class LoanApplication extends Component {
       institutionalAddress: "",
       need: "",
       grade: "",
-      image: null,
-      fundNeeded: null,
+      image: "",
+      fundNeeded: "",
     };
   }
 
