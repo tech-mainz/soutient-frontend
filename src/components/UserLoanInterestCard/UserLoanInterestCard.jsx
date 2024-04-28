@@ -16,9 +16,9 @@ const UserLoanInterestCard = ({ interest }) => {
         handleClose={handleClose}
         interest={interest}
       />
-      <p>{interest?.contact_email}</p>
+      <p className="interest_msg">{interest?.contact_email}</p>
       <p>{interest?.message}</p>
-      <button onClick={handleOpen}>Make payment</button>
+      <button onClick={handleOpen} className="submit__button">Make Payment</button>
     </div>
   );
 };

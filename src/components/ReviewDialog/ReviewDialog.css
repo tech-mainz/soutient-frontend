@@ -1,0 +1,37 @@
+.review__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    gap: 2rem;
+    padding-top: 5rem;
+}
+.review__field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.review__field > input {
+    background-color: #f746701a;
+    border: 2px solid var(--secondaryColor);
+    border-radius: 4px;
+    width: 15rem;
+    height: 2rem;
+}
+
+.review__field > label {
+    color: var(--primaryColor);
+  text-transform: uppercase;
+  font-family: var(--primary-font);
+  font-weight: 750;
+  width: 9.25rem;
+  float: left;
+  flex-direction: row;
+}
+
+.review__content > .submit__button {
+    width: 8rem;
+    font-size: 1rem;
+}

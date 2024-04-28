@@ -1,0 +1,20 @@
+.confirm__content > .submit__button {
+    width: 7rem;
+    font-size: 0.9rem;
+}
+
+.confirm__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    gap: 1.5rem;
+    padding-top: 5rem;
+}
+.confirm__content > input {
+    background-color: #f746701a;
+    border: 2px solid var(--secondaryColor);
+    border-radius: 4px;
+    width: 15rem;
+    height: 2rem;
+}
