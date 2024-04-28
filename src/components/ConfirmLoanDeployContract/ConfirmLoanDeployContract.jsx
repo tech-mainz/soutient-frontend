@@ -83,6 +83,7 @@ const ConfirmLoanDeployContract = ({ open, handleClose, interest }) => {
         sx={{ "&::-webkit-scrollbar": { display: "none" }, padding: 0 }}
       >
         <form>
+        <div className="confirm__content">
           <input
             type="text"
             placeholder="Description"
@@ -93,7 +94,7 @@ const ConfirmLoanDeployContract = ({ open, handleClose, interest }) => {
           />
           <input
             type="number"
-            placeholder="Amout to be paid"
+            placeholder="Amount to be paid"
             value={amount}
             onChange={(e) => {
               setAmount(e.target.value);
@@ -101,13 +102,14 @@ const ConfirmLoanDeployContract = ({ open, handleClose, interest }) => {
           />
           <input
             type="datetime"
-            placeholder="deadline"
+            placeholder="Deadline"
             value={repayDate}
             onChange={(e) => {
               setRepayDate(e.target.value);
             }}
           />
-          <button onClick={acceptLoan}>Submit</button>
+          <button onClick={acceptLoan} className="submit__button">Submit</button>
+          </div>
         </form>
       </DialogContent>
     </Dialog>

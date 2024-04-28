@@ -60,11 +60,13 @@ const EducationLoanDialog = ({ application, open, handleClose }) => {
       <DialogContent
         sx={{ "&::-webkit-scrollbar": { display: "none" }, padding: 0 }}
       >
+        <div className="interest__container">
         <h2>Would you like to send the interest?</h2>
         <form onSubmit={handleInterest}>
+          <div className="interest__content">
           <input
             type="text"
-            placeholder="message"
+            placeholder="Message"
             required
             value={message}
             onChange={(e) => {
@@ -82,9 +84,13 @@ const EducationLoanDialog = ({ application, open, handleClose }) => {
               setContact(e.target.value);
             }}
           />
-          <button type="submit">Submit</button>
-          <button type="clear">Clear</button>
+          <div className="button__container">
+          <button type="submit" className="submit__button">Submit</button>
+          <input type="reset" className="submit__button"/>
+          </div>
+          </div>
         </form>
+        </div>
       </DialogContent>
     </Dialog>
   );
