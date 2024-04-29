@@ -17,7 +17,6 @@ export default function CampaignsFeed() {
     const getCampaigns = async () => {
       try {
         const campaigns = await contract.getCampaigns();
-        // console.log("Campaigns:", campaigns);
         setCampaigns(campaigns);
       } catch (error) {
         console.error("Error fetching campaigns:", error);
