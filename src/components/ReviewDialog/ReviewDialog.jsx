@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "./reviewDialog.css";
+import "./ReviewDialog.css";
 import { UserContext } from "../../contexts/UserContext";
 import { Dialog, DialogContent } from "@mui/material";
 import axios from "axios";
@@ -62,7 +62,9 @@ const ReviewDialog = ({ open, handleClose }) => {
         sx={{ "&::-webkit-scrollbar": { display: "none" }, padding: 0 }}
       >
         <form onSubmit={submitReview}>
-          <label htmlFor="Description">Description</label>
+          <div className="review__content">
+          <div className="review__field">
+          <label htmlFor="Description">Description: </label>
           <input
             type="text"
             value={description}
@@ -70,7 +72,9 @@ const ReviewDialog = ({ open, handleClose }) => {
               setDescription(e.target.value);
             }}
           />
-          <label htmlFor="Name">Name</label>
+          </div>
+          <div className="review__field">
+          <label htmlFor="Name">Name: </label>
           <input
             type="text"
             value={name}
@@ -78,7 +82,9 @@ const ReviewDialog = ({ open, handleClose }) => {
               setName(e.target.value);
             }}
           />
-          <button type="submit">Submit</button>
+          </div>
+          <button type="submit" className="submit__button">Submit</button>
+          </div>
         </form>
       </DialogContent>
     </Dialog>

@@ -1,0 +1,35 @@
+.interest__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+
+.interest__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    gap: 1rem;
+    padding-top: 3rem;
+}
+
+.button__container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding-top: 2rem;
+}
+
+.interest__content > input {
+    background-color: #f746701a;
+    border: 2px solid var(--secondaryColor);
+    border-radius: 4px;
+    width: 15rem;
+    height: 2rem;
+}
+
+.button__container > .submit__button {
+    width: 7rem;
+    font-size: 0.9rem;
+}
