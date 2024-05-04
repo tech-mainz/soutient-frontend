@@ -1,0 +1,11 @@
+.mainlayout__container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+.backbutton__contain{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+}
