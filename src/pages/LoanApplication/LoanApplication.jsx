@@ -18,6 +18,7 @@ class LoanApplication extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    
     const {
       requesterName,
       institutionalAddress,
@@ -26,6 +27,10 @@ class LoanApplication extends Component {
       image,
       fundNeeded,
     } = this.state;
+    if(grade>12 || grade<1){
+      alert("Enter valid grade values!!");
+      return;
+    }
     const requesterMetamaskId = window.localStorage.getItem("userAddress");
 
     try {
