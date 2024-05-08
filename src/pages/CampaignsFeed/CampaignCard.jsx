@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const contract = new ethers.Contract(contractAddress, Abi, provider);
 const CampaignCard = ({ campaign }) => {
+  console.log("Campiagn detailed: ",campaign)
   const [currCampaign, setCampaign] = useState();
   const { userAddress } = useContext(UserContext);
   const curDate = new Date();
@@ -72,7 +73,10 @@ const CampaignCard = ({ campaign }) => {
             <span className="tag__val">Target:</span>{" "}
             {campaign.target.toString()}
           </p>
+          
         </div>
+        <p>{campaign[1]}</p>
+        <p>{campaign[0]}</p>
         <button onClick={handleDonate} className="submit__button">
           Donate
         </button>
