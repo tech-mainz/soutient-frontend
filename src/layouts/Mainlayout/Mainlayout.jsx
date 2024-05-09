@@ -1,6 +1,7 @@
 import React from 'react'
 import './Mainlayout.css'
 import { Backbutton } from '../../components'
+import Footer from '../../components/Footer/Footer'
 const Mainlayout = (props) => {
   return (
     <div className='mainlayout__container'>
@@ -8,6 +9,7 @@ const Mainlayout = (props) => {
             <Backbutton/>
         </div>
       {props.children}
+      <Footer/>
     </div>
   )
 }
